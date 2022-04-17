@@ -1,6 +1,7 @@
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class sss {
+public class Test {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "D:\\driver/chromedriver.exe");
         ChromeDriver driver = new ChromeDriver();
@@ -27,6 +28,34 @@ public class sss {
 //        Thread.sleep(6000);
 //        //关闭网页
 //        driver.close();
+//        //className定位输入框
+//        WebElement name = driver.findElementByClassName("s_ipt");
+//        //输入吾爱破解
+//        name.sendKeys("吾爱破解");
+//        //定位点击按钮
+//        driver.findElementByClassName("s_btn").click();
+//        //关闭网页
+//        driver.close();
+//        //用linkText等位超链接
+//        WebElement xinwen= driver.findElementByLinkText("新闻");
+//        //点击新闻
+//        xinwen.click();
+//        //设置强行等待时间
+//        Thread.sleep(3000);
+//        //关闭网页
+//        driver.close();
+        driver.get("https://www.baidu.com");
+        //用partialLinkText  定位部分超链接
+        WebElement tieba = driver.findElementByPartialLinkText("贴");
+        //点击贴吧
+        tieba.click();
+        //设置强制等待
+        Thread.sleep(3000);
+        //关闭网页
+        driver.close();
+
+
+
 
     }
 }
