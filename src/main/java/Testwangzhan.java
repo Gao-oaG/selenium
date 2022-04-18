@@ -3,7 +3,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Testwangzhan {
@@ -15,31 +14,36 @@ public class Testwangzhan {
         //添加隐式等待时间
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //打开百度网页
-        driver.get("https:www.baidu.com");
+        driver.get("https://www.baidu.com");
         //用ID定位输入框
         WebElement id = driver.findElement(By.id("kw"));
+        Thread.sleep(10000);
         //输入12306
         id.sendKeys("12306");
         //用ID定位
         WebElement ById = driver.findElementById("su");
         //点击百度一下
         ById.click();
+        Thread.sleep(15000);
 
         //获取百度窗口手柄
         String baiduHandle = driver.getWindowHandle();
 
         //点击12306网站
         driver.findElementByXPath("//*[@id='1']/h3/a[1]").click();
+//        driver.findElementByLinkText("中国铁路12306").click();
+//
+//        //从所有窗口中判断是否第一个窗口，如果不是第一个进行窗口切换
+//        Set<String> windowHandles = driver.getWindowHandles();
+//        for(String string : windowHandles){
+//            System.out.println(string);
+//            if(string!=baiduHandle){
+//                //进行窗口切换
+//                driver.switchTo().window(string);
+//            }
+//        }
 
-        //从所有窗口中判断是否第一个窗口，如果不是第一个进行窗口切换
-        Set<String> windowHandles = driver.getWindowHandles();
-        for(String string : windowHandles){
-            System.out.println(string);
-            if(string!=baiduHandle){
-                //进行窗口切换
-                driver.switchTo().window(string);
-            }
-        }
+
 
         //注册超链接
         driver.findElementByLinkText("注册").click();
